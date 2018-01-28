@@ -17,6 +17,7 @@
 
 $symt = $pdo->query('SET NAMES utf8');//文字化け対策
 
+//mission_2-8
 //SQLコマンド「CREATE TABLE」で新規テーブルを作成する。
 $sql = "CREATE TABLE tbtest"
 ."("
@@ -26,6 +27,7 @@ $sql = "CREATE TABLE tbtest"
 .");";
 $stmt = $pdo->query($sql);
 
+//mission_2-9
 $sql = 'SHOW TABLES';
 $result = $pdo-> query($sql);
 foreach($result as $row){
@@ -34,6 +36,10 @@ foreach($result as $row){
 }
 echo '<br>';
 ?>
+
+//mission_2-10
+
+
 
 <html>
 
