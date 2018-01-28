@@ -26,6 +26,13 @@ $sql = "CREATE TABLE tbtest"
 .");";
 $stmt = $pdo->query($sql);
 
+$sql = 'SHOW TABLES';
+$result = $pdo-> query($sql);
+foreach($result as $row){
+	echo $row[0];
+	echo'<br>';
+}
+echo '<br>';
 ?>
 
 <html>
