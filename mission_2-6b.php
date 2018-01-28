@@ -38,8 +38,13 @@ echo '<br>';
 ?>
 
 //mission_2-10
-
-
+//show create table を利用
+$sql = 'SHOW CREATE TABLE tbtest;';
+$result = $pdo -> query($sql);
+foreach($result as $row){
+	print_r($row);
+}
+echo '<hr>';
 
 <html>
 
