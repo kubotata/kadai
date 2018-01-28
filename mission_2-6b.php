@@ -56,6 +56,7 @@ $sql -> bindParam(':name',$name,PDO::PARAM_STR);
 $sql -> bindParam(':comment',$comment,PDO::PARAM_STR);
 $sql ->execute();
 
+//mission_2-12
 
 
 <html>
