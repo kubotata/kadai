@@ -26,7 +26,7 @@ $sql = "CREATE TABLE tbtest"
 ."comment TEXT"
 .");";
 $stmt = $pdo->query($sql);
-
+/*
 //mission_2-9
 $sql = 'SHOW TABLES';
 $result = $pdo-> query($sql);
@@ -36,6 +36,8 @@ foreach($result as $row){
 }
 echo '<br>';
 ?>
+*/
+
 
 //mission_2-10
 //show create table を利用
@@ -45,6 +47,16 @@ foreach($result as $row){
 	print_r($row);
 }
 echo '<hr>';
+
+//mission_2-11
+$name = '好きな名前';
+$comment = '好きなコメント';
+$sql = $pdo -> prepare("INSERT INTO tbtest(id,name,comment) VALUES('1',:name,:comment);");
+$sql -> bindParam(':name',$name,PDO::PARAM_STR);
+$sql -> bindParam(':comment',$comment,PDO::PARAM_STR);
+$sql ->execute();
+
+
 
 <html>
 
