@@ -1,8 +1,8 @@
 <?php
 
     //データベースへの接続
-  $dsn = 'mysql:dbname= co_991_it_3919_c ;host=localhost';
-  $user = 'co-991.it.3919.c';
+  $dsn = 'mysql:dbname= co_991_99sv_coco_com ;host=localhost';
+  $user = 'co-991.99sv-coco.com';
   $password = 'Kmi8sQ';
   
   try{
