@@ -57,6 +57,20 @@ $sql -> bindParam(':comment',$comment,PDO::PARAM_STR);
 $sql ->execute();
 
 //mission_2-12
+$sql = 'SELECT * FROM tbtest;';	//クエリ、「tbtest」は自分が作ったフィールド名
+$result = $pdo -> query($sql);	//実行・結果表示
+
+//ブラウザ上で出力する
+foreach($result as $row){
+	//$rowの中にはテーブルのカラム名が入る。
+	echo $row['id'].'.';
+	echo $row['name'].'.';
+	echo $row['comment'].'<br>';
+}
+
+//mission_2-13
+
+
 
 
 <html>
