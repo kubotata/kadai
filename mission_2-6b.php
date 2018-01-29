@@ -17,6 +17,7 @@
 
 $symt = $pdo->query('SET NAMES utf8');//文字化け対策
 
+/*
 //mission_2-8
 //SQLコマンド「CREATE TABLE」で新規テーブルを作成する。
 $sql = "CREATE TABLE tbtest"
@@ -26,6 +27,8 @@ $sql = "CREATE TABLE tbtest"
 ."comment TEXT"
 .");";
 $stmt = $pdo->query($sql);
+*/
+
 /*
 //mission_2-9
 $sql = 'SHOW TABLES';
@@ -38,7 +41,7 @@ echo '<br>';
 ?>
 */
 
-
+/*
 //mission_2-10
 //show create table を利用
 $sql = 'SHOW CREATE TABLE tbtest;';
@@ -47,7 +50,8 @@ foreach($result as $row){
 	print_r($row);
 }
 echo '<hr>';
-
+*/
+/*
 //mission_2-11
 $name = '好きな名前';
 $comment = '好きなコメント';
@@ -55,7 +59,8 @@ $sql = $pdo -> prepare("INSERT INTO tbtest(id,name,comment) VALUES('1',:name,:co
 $sql -> bindParam(':name',$name,PDO::PARAM_STR);
 $sql -> bindParam(':comment',$comment,PDO::PARAM_STR);
 $sql ->execute();
-
+*/
+/*
 //mission_2-12
 $sql = 'SELECT * FROM tbtest;';	//クエリ、「tbtest」は自分が作ったフィールド名
 $result = $pdo -> query($sql);	//実行・結果表示
@@ -67,7 +72,8 @@ foreach($result as $row){
 	echo $row['name'].'.';
 	echo $row['comment'].'<br>';
 }
-
+*/
+/*
 //mission_2-13
 //UPDATE文を実行
 
@@ -76,13 +82,14 @@ $id = 1; $nm = "好きな名前"; $kome = "好きな言葉";
 $sql = "updata tbtest set name = '$nm',comment = '$kome'where id = '$id';";
 $result = $pdo->query($sql);
 //実際に編集ができているか2-12の方法で確認
-
+*/
+/*
 //mission_2-14
 $id = 2;
 $sql = "delete from tbtest where ='$id';";
 $result = $pdo->query($sql);
 //削除できているか、2-12の方法で確認
-
+*/
 
 
 <html>
