@@ -1,27 +1,18 @@
 <?php
-    //ƒf[ƒ^ƒx[ƒX‚Ö‚ÌÚ‘±
-  $dsn='mysql:dbname=co_991_99sv_coco_com;host=localhost';
-  $user='co-991.99sv-coco.com';
-  $password='Kmi8sQ';
-  
-  try{
-  $pdo=new PDO($dsn,$user,$password);
-  $pdo=nu11;
-  }
-  
-  catch(PDOexception $e){
-  print('ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½:'.$e->getMessage());
-  die();
-  }
 
-
+//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š
+$dsn='mysql:dbname=co_991_99sv_coco_com;host=localhost';
+$user ='co-991.99sv-coco.com';
+$password ='Kmi8sQ';
+$pdo = new PDO($dsn,$user,$password);
+$stmt = $pdo->query('SET NAMES utf8');//æ–‡å­—åŒ–ã‘å¯¾ç­–
 
 ?>
 
 <html>
 
 <head>
-<title> Œf¦”Âì‚èvol.6b
+<title> æ²ç¤ºæ¿ä½œã‚Švol.6b
 </title>
 
 </head>
@@ -29,65 +20,65 @@
 <body>
 
 <?php
-  $filename = 'mission_2-6b.txt';  //ƒeƒLƒXƒg‚ğ•Ï”‚É‘ã“ü
+  $filename = 'mission_2-6b.txt';  //ãƒ†ã‚­ã‚¹ãƒˆã‚’å¤‰æ•°ã«ä»£å…¥
 
-  $name = $_POST['name'];  //‘—M“à—e‚ğó‚¯æ‚é
+  $name = $_POST['name'];  //é€ä¿¡å†…å®¹ã‚’å—ã‘å–ã‚‹
   $free = $_POST['free'];
-  $date = date("y/m/d h:i:s");  //ŠÔ
-  $del = $_POST['del'];  //íœƒ{ƒ^ƒ“‚Ì”Ô†
-  $edit = $_POST['edit'];  //•ÒWƒ{ƒ^ƒ“‚Ì”Ô†
+  $date = date("y/m/d h:i:s");  //æ™‚é–“
+  $del = $_POST['del'];  //å‰Šé™¤ãƒœã‚¿ãƒ³ã®ç•ªå·
+  $edit = $_POST['edit'];  //ç·¨é›†ãƒœã‚¿ãƒ³ã®ç•ªå·
   
-  if(file_exists($filename)){  //ƒtƒ@ƒCƒ‹‚Ì‘¶İ‚ğŠm”F
+  if(file_exists($filename)){  //ãƒ•ã‚¡ã‚¤ãƒ«ã®å­˜åœ¨ã‚’ç¢ºèª
   
-     $cnt = count(file($filename));     //ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚Æ‚«A“Še”Ô† 1s‚¨‚«‚É+1
+     $cnt = count(file($filename));     //ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ã¨ãã€æŠ•ç¨¿ç•ªå· 1è¡ŒãŠãã«+1
      $i = $cnt +1; 
-     }else{     //‚È‚¢‚Æ‚«$i‚É1‚ğ‘ã“ü
+     }else{     //ãªã„ã¨ã$iã«1ã‚’ä»£å…¥
      $i = 1;
   }
 
 
-  if(isset($_POST['Sendbtn'])){  //‘—Mƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«’Ç‹L
-        $pass = $_POST['pass'];	//ƒpƒXƒ[ƒh‚ğæ“¾
-  	//ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚É’Ç‹L•Û‘¶t
+  if(isset($_POST['Sendbtn'])){  //é€ä¿¡ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ãè¿½è¨˜
+        $pass = $_POST['pass'];	//ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å–å¾—
+  	//ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«è¿½è¨˜ä¿å­˜t
   	$fp = fopen($filename,"a");   
   	fwrite($fp, $i."<>".$name."<>" . $free."<>".$date."<>".$pass."<>"."\n");
   	fclose($fp);
   }
-  	//íœƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+  	//å‰Šé™¤ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
   	
   	
   if(isset($_POST['Delbtn'])){
-	$del_pass = $_POST['del_pass'];	//íœƒtƒH[ƒ€‚ÌƒpƒXƒ[ƒhæ“¾
-	//$pass = $_POST['pass'];	//“ŠeƒtƒH[ƒ€‚ÌƒpƒXƒ[ƒh‚ğæ“¾*/
+	$del_pass = $_POST['del_pass'];	//å‰Šé™¤ãƒ•ã‚©ãƒ¼ãƒ ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å–å¾—
+	//$pass = $_POST['pass'];	//æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å–å¾—*/
   			
-  		$filedata = file($filename);	//ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚©‚ç1s‚¸‚Â”z—ñ‚Æ‚µ‚Ä“Ç‚İ‚İA•Ï”‚É‘ã“ü
-  		$fp = fopen($filename, 'w+');	//‘‚«‚İƒ‚[ƒh
+  		$filedata = file($filename);	//ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œãšã¤é…åˆ—ã¨ã—ã¦èª­ã¿è¾¼ã¿ã€å¤‰æ•°ã«ä»£å…¥
+  		$fp = fopen($filename, 'w+');	//æ›¸ãè¾¼ã¿ãƒ¢ãƒ¼ãƒ‰
   		
-  		foreach($filedata as $line){	//”z—ñ‚Ì”‚¾‚¯ƒ‹[ƒv
-  			$data = explode('<>',$line);	//explode‚Å“Še”Ô†‚ğæ“¾
+  		foreach($filedata as $line){	//é…åˆ—ã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
+  			$data = explode('<>',$line);	//explodeã§æŠ•ç¨¿ç•ªå·ã‚’å–å¾—
   			/*
-  			 [0] “Še”Ô†
-  		 	 [1] –¼‘O
-  			 [2] ƒRƒƒ“ƒg
-  			 [3] “ú
-  			 [4] ƒpƒXƒ[ƒh
+  			 [0] æŠ•ç¨¿ç•ªå·
+  		 	 [1] åå‰
+  			 [2] ã‚³ãƒ¡ãƒ³ãƒˆ
+  			 [3] æ—¥æ™‚
+  			 [4] ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
   		  		*/
   			//var_dump($data);
   			//echo "<br>";
   			
-  		  	if(($data[0] == $del) and ($data[4] == $del_pass)){	//ƒpƒXƒ[ƒh‚ªˆê’v‚µ‚½ê‡‚Ì‚İ
-				//echo "check1|".$data[0]."|".$del."|<hr>"; //“Še”Ô†‚Æíœ”Ô†AíœƒpƒXƒ[ƒh‚Æ“ŠeƒpƒXƒ[ƒh‚ªˆê’v‚µ‚½‚çAíœ
+  		  	if(($data[0] == $del) and ($data[4] == $del_pass)){	//ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ãŸå ´åˆã®ã¿
+				//echo "check1|".$data[0]."|".$del."|<hr>"; //æŠ•ç¨¿ç•ªå·ã¨å‰Šé™¤ç•ªå·ã€å‰Šé™¤ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¨æŠ•ç¨¿ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ãŸã‚‰ã€å‰Šé™¤
 				//echo "check2|".$data[4]."|".$del_pass."|<hr>"; //
 				
-				fwrite($fp,$data[0]." "."íœ‚µ‚Ü‚µ‚½\n");
+				fwrite($fp,$data[0]." "."å‰Šé™¤ã—ã¾ã—ãŸ\n");
 			
 			} else {
-				fputs($fp,$line); //ˆê’v‚µ‚Ä‚¢‚È‚¢‚à‚Ì‚Í•\¦
+				fputs($fp,$line); //ä¸€è‡´ã—ã¦ã„ãªã„ã‚‚ã®ã¯è¡¨ç¤º
 		//		echo "check3|".$line."|<hr>";
 				
 			/*
- 				//ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚É•Û‘¶‚³‚ê‚Ä‚¢‚½“Še”Ô†‚Æ‘—M‚³‚ê‚½”Ô†‚ğ”äŠr
-				if($data[0]!=$del){	//ƒCƒR[ƒ‹‚Å‚È‚¢‚Æ‚«‚¾‚¯ã‘‚«•Û‘¶
+ 				//ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã•ã‚Œã¦ã„ãŸæŠ•ç¨¿ç•ªå·ã¨é€ä¿¡ã•ã‚ŒãŸç•ªå·ã‚’æ¯”è¼ƒ
+				if($data[0]!=$del){	//ã‚¤ã‚³ãƒ¼ãƒ«ã§ãªã„ã¨ãã ã‘ä¸Šæ›¸ãä¿å­˜
 				echo "check3|".$data[0]."|".$del."|<hr>";
 				
 					fputs($fp,$line);
@@ -98,104 +89,104 @@
 		fclose($fp);
   }//if
 
-	//•ÒWƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ê‡
-	 if(isset($_POST['Editbtn'])) {	//ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚©‚ç1s‚¸‚Â”z—ñ‚Æ‚µ‚Ä“Ç‚İ‚İA•Ï”‚É‘ã“ü
+	//ç·¨é›†ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸå ´åˆ
+	 if(isset($_POST['Editbtn'])) {	//ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œãšã¤é…åˆ—ã¨ã—ã¦èª­ã¿è¾¼ã¿ã€å¤‰æ•°ã«ä»£å…¥
 	 
-	 	$edit_pass = $_POST['edit_pass'];	//•ÒWƒtƒH[ƒ€‚ÌƒpƒXƒ[ƒhæ“¾
+	 	$edit_pass = $_POST['edit_pass'];	//ç·¨é›†ãƒ•ã‚©ãƒ¼ãƒ ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å–å¾—
   		$edit=$_POST['edit'];
-  		$filedata = file($filename);	//ƒtƒ@ƒCƒ‹‚ğ1s‚¸‚Â‚Ì”z—ñ‚É‚µ‚Ä•Ï”‚É‘ã“ü
-  		$fp = fopen($filename, 'r');	//ƒtƒ@ƒCƒ‹‚ğŠJ‚­
-  		foreach($filedata as $line){	//”z—ñ‚Ì”‚¾‚¯ƒ‹[ƒv
+  		$filedata = file($filename);	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’1è¡Œãšã¤ã®é…åˆ—ã«ã—ã¦å¤‰æ•°ã«ä»£å…¥
+  		$fp = fopen($filename, 'r');	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+  		foreach($filedata as $line){	//é…åˆ—ã®æ•°ã ã‘ãƒ«ãƒ¼ãƒ—
   		
-  			$data = explode('<>',$line);	//explode‚Å“Še”Ô†‚ğæ“¾
+  			$data = explode('<>',$line);	//explodeã§æŠ•ç¨¿ç•ªå·ã‚’å–å¾—
   			
-  			if(($data[0] == $edit) and ($data[4] == $edit_pass)){	//“Še”Ô†‚Æ•ÒW”Ô†A“ŠeƒpƒXƒ[ƒh‚Æ•ÒWƒpƒXƒ[ƒh‚ªˆê’v‚µ‚½‚ç
+  			if(($data[0] == $edit) and ($data[4] == $edit_pass)){	//æŠ•ç¨¿ç•ªå·ã¨ç·¨é›†ç•ªå·ã€æŠ•ç¨¿ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¨ç·¨é›†ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ãŸã‚‰
   			//	echo "check1|".$data[0]."|".$edit."|check2|".$data[4]."|".$edit_pass."|<hr>";
   			
-  				$edit_num = $data[0]; //óM‚µ‚½“à—e‚ğ•Ï”‚É‘ã“ü [0]“Še”Ô†
-				$user = $data[1]; //[1]–¼‘O
-				$text = $data[2]; //[2]ƒRƒƒ“ƒg
+  				$edit_num = $data[0]; //å—ä¿¡ã—ãŸå†…å®¹ã‚’å¤‰æ•°ã«ä»£å…¥ [0]æŠ•ç¨¿ç•ªå·
+				$user = $data[1]; //[1]åå‰
+				$text = $data[2]; //[2]ã‚³ãƒ¡ãƒ³ãƒˆ
 				//var_dump($edit_num."<>".$user."<>".$text);
 				//echo "<br>";
 
   			
   			}//if
   			
-			//ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚É•Û‘¶‚³‚ê‚Ä‚¢‚½“Še”Ô†‚Æ‘—M‚³‚ê‚½”Ô†‚ğ”äŠr
-		/*	if($data[0] ==$edit){ //ƒCƒR[ƒ‹‚Ì‚Ì”z—ñ‚ğæ“¾
+			//ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã•ã‚Œã¦ã„ãŸæŠ•ç¨¿ç•ªå·ã¨é€ä¿¡ã•ã‚ŒãŸç•ªå·ã‚’æ¯”è¼ƒ
+		/*	if($data[0] ==$edit){ //ã‚¤ã‚³ãƒ¼ãƒ«ã®æ™‚ã®é…åˆ—ã‚’å–å¾—
 			
-				$edit_num = $data[0]; //óM‚µ‚½“à—e‚ğ•Ï”‚É‘ã“ü [0]“Še”Ô†
-				$user = $data[1]; //[1]–¼‘O
-				$text = $data[2]; //[2]ƒRƒƒ“ƒg
+				$edit_num = $data[0]; //å—ä¿¡ã—ãŸå†…å®¹ã‚’å¤‰æ•°ã«ä»£å…¥ [0]æŠ•ç¨¿ç•ªå·
+				$user = $data[1]; //[1]åå‰
+				$text = $data[2]; //[2]ã‚³ãƒ¡ãƒ³ãƒˆ
 				//var_dump($edit_num."<>".$user."<>".$text);
 				//echo "<br>";
-			}//if•¶*/
-        	}//foreach•¶
-  		fclose($fp);	//ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+			}//ifæ–‡*/
+        	}//foreachæ–‡
+  		fclose($fp);	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
   		
 	}
 
 
-	if(isset($_POST['Overwrite'])){	//ã‘‚«ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚ç
+	if(isset($_POST['Overwrite'])){	//ä¸Šæ›¸ããƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚‰
 	
   		$edit_num =$_POST['edit_num'];
   		$user = $_POST['user'];
   		$text = $_POST['text'];
   		
   		
-  		$filedata = file($filename);	//ƒtƒ@ƒCƒ‹‚ğ1s‚¸‚Â‚Ì”z—ñ‚É‚µ‚Ä•Ï”‚É‘ã“ü
-  		$fp = fopen($filename,'w+');	//ã‘‚«ƒ‚[ƒh‚Åƒtƒ@ƒCƒ‹‚ğŠJ‚­
-  		foreach($filedata as $line){	//”z—ñ‚©‚çˆê‚Â‚¸‚Âæ‚èo‚·
-  			$data = explode('<>',$line);	//•Ï”‚ÉA‹æØ‚è‚²‚Æ”z—ñ‚É‚µ‚Ä‘ã“ü
-			//echo "check_if1|".$data[0]."|".$edit_num."|".$edit."|<hr>";	//ƒfƒoƒbƒO—Ìˆæ
+  		$filedata = file($filename);	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’1è¡Œãšã¤ã®é…åˆ—ã«ã—ã¦å¤‰æ•°ã«ä»£å…¥
+  		$fp = fopen($filename,'w+');	//ä¸Šæ›¸ããƒ¢ãƒ¼ãƒ‰ã§ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+  		foreach($filedata as $line){	//é…åˆ—ã‹ã‚‰ä¸€ã¤ãšã¤å–ã‚Šå‡ºã™
+  			$data = explode('<>',$line);	//å¤‰æ•°ã«ã€åŒºåˆ‡ã‚Šã”ã¨é…åˆ—ã«ã—ã¦ä»£å…¥
+			//echo "check_if1|".$data[0]."|".$edit_num."|".$edit."|<hr>";	//ãƒ‡ãƒãƒƒã‚°é ˜åŸŸ
 		
-  			if($data[0] == $edit_num){	//$data[0](“Še”Ô†)‚Æ$edit_num(•ÒW”Ô†)‚ª“¯‚¶‚È‚ç
-  				$hensyu =$edit_num[0]."<>".$user."<>".$text."<>".$date."<>".$data[4]."<>"."\n";	//•Ï”‚É“à—e‚ğ‘ã“ü
-  				fputs($fp,$hensyu);	//•ÒW‚µ‚½1s‚ğƒtƒ@ƒCƒ‹‚É’Ç‹L
-				//echo "check_if2|".$edit_num[0]."<>".$user."<>".$text."<>".$date."|<hr>";	//ƒfƒoƒbƒO—Ìˆæ
-  			}else{	//ˆê’v‚µ‚È‚¢‚Æ‚«
+  			if($data[0] == $edit_num){	//$data[0](æŠ•ç¨¿ç•ªå·)ã¨$edit_num(ç·¨é›†ç•ªå·)ãŒåŒã˜ãªã‚‰
+  				$hensyu =$edit_num[0]."<>".$user."<>".$text."<>".$date."<>".$data[4]."<>"."\n";	//å¤‰æ•°ã«å†…å®¹ã‚’ä»£å…¥
+  				fputs($fp,$hensyu);	//ç·¨é›†ã—ãŸ1è¡Œã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«è¿½è¨˜
+				//echo "check_if2|".$edit_num[0]."<>".$user."<>".$text."<>".$date."|<hr>";	//ãƒ‡ãƒãƒƒã‚°é ˜åŸŸ
+  			}else{	//ä¸€è‡´ã—ãªã„ã¨ã
   					
-  				fputs($fp,$line);	//Œ³‚Ì1s‚ğƒtƒ@ƒCƒ‹‚É’Ç‹L
-				//echo "check_if3|".$line."|<hr>";	//ƒfƒoƒbƒO—Ìˆæ
+  				fputs($fp,$line);	//å…ƒã®1è¡Œã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«è¿½è¨˜
+				//echo "check_if3|".$line."|<hr>";	//ãƒ‡ãƒãƒƒã‚°é ˜åŸŸ
 
   			}//else
   		}//foreach
- 		fclose($fp);	//ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+ 		fclose($fp);	//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
   	}//if
 
 
 ?>
 
   
-  <h1> Œf¦”Âì‚èvol.6b </h1>
+  <h1> æ²ç¤ºæ¿ä½œã‚Švol.6b </h1>
 
-      <!-“ü—ÍƒtƒH[ƒ€ ->
+      <!-å…¥åŠ›ãƒ•ã‚©ãƒ¼ãƒ  ->
   <form action ="mission_2-6b.php" method ="POST">
-  <p>–¼</p>
+  <p>æ°å</p>
   <p><input name = "name" type = "text" ></p>
-  <p>ƒRƒƒ“ƒg</p>
+  <p>ã‚³ãƒ¡ãƒ³ãƒˆ</p>
   <p><textarea name ="free" cols="50" rows="5" ></textarea></p>
-  ƒpƒXƒ[ƒh:<input type="password" name="pass" >
-  <input type = "submit" name="Sendbtn" value = "‘—M">
+  ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰:<input type="password" name="pass" >
+  <input type = "submit" name="Sendbtn" value = "é€ä¿¡">
   <hr>
   
-  <p>íœ‘ÎÛ”Ô†:
+  <p>å‰Šé™¤å¯¾è±¡ç•ªå·:
   <input type = "text" name= "del" size ="1"> 
-  <p>ƒpƒXƒ[ƒh:<input type="password" name="del_pass"></p>
-  <input type = "submit" name="Delbtn" value = "íœ"></p>
+  <p>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰:<input type="password" name="del_pass"></p>
+  <input type = "submit" name="Delbtn" value = "å‰Šé™¤"></p>
   <hr>
   
-  <p>•ÒW‘ÎÛ”Ô†:
+  <p>ç·¨é›†å¯¾è±¡ç•ªå·:
   <input type = "text" name= "edit" size = "1">
-  <p>ƒpƒXƒ[ƒh:<input type="password" name="edit_pass"></p>
-  <input type = "submit" name="Editbtn" value = "•ÒW"></p>
+  <p>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰:<input type="password" name="edit_pass"></p>
+  <input type = "submit" name="Editbtn" value = "ç·¨é›†"></p>
   </form>
 
   <form action = "mission_2-6b.php" method = "post">
   <input name = "edit_num" type = "hidden" value = "<?php echo $edit_num;?>" /><br>
   <input name = "user" type = "text" value = "<?php echo $user;?>" />
   <input name = "text" type = "text" value ="<?php echo $text;?>" />
-  <button type = "submit" name ="Overwrite">ã‘‚«</button> 
+  <button type = "submit" name ="Overwrite">ä¸Šæ›¸ã</button> 
   <hr>
   </form>
 
@@ -206,19 +197,19 @@
 
 
   
-    //ƒtƒ@ƒCƒ‹‚ğ”z—ñ‚É‚µ‚ÄA1s‚¸‚Â“Ç‚İ‚Ş
+    //ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…åˆ—ã«ã—ã¦ã€1è¡Œãšã¤èª­ã¿è¾¼ã‚€
   $lines = file($filename);
 
-  //“ü—ÍƒtƒH[ƒ€‰º‚É•\¦
+  //å…¥åŠ›ãƒ•ã‚©ãƒ¼ãƒ ä¸‹ã«è¡¨ç¤º
   foreach($lines as $lines){
-     //”z—ñ‚ğ•ªŠ„
+     //é…åˆ—ã‚’åˆ†å‰²
      $aa = explode('<>',$lines);
      
-     echo $aa[0]." "; //“Še”Ô†
-     echo $aa[1]." "; //–¼‘O
-     echo $aa[2]." "; //ƒRƒƒ“ƒg
-     echo $aa[3]." "."<br>"; //“ú
-     //echo $aa[4]." "."<br>"; //ƒpƒXƒ[ƒh
+     echo $aa[0]." "; //æŠ•ç¨¿ç•ªå·
+     echo $aa[1]." "; //åå‰
+     echo $aa[2]." "; //ã‚³ãƒ¡ãƒ³ãƒˆ
+     echo $aa[3]." "."<br>"; //æ—¥æ™‚
+     //echo $aa[4]." "."<br>"; //ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
 }
 
 
